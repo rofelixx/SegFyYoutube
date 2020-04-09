@@ -25,10 +25,17 @@ namespace SegFyYoutube.WebApi.Controllers
         [Produces(typeof(List<YoutubeDto>))]
         public async Task<ActionResult> Get([FromQuery] string searchFilter, [FromQuery] EYoutubeType searchType)
         {
-            if (string.IsNullOrEmpty(searchFilter))
-                return new BadRequestResult();
+            try
+            {
+                if (string.IsNullOrEmpty(searchFilter))
+                    return new BadRequestResult();
 
-            return Ok(await _youtubeAppService.Pesquisar(searchFilter, searchType));
+                return Ok(await _youtubeAppService.Pesquisar(searchFilter, searchType));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
     }
 }

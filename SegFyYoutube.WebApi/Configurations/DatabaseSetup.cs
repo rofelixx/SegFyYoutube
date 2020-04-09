@@ -13,7 +13,7 @@ namespace SegFyYoutube.WebApi.Configurations
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             services.AddDbContext<SegFyContext>(options =>
-                options.UseMySql(configuration.GetConnectionString("teste")));
+                options.UseMySql(configuration.GetConnectionString("defaultConnection")));
         }
     }
 }

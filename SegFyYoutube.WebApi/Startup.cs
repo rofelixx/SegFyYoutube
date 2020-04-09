@@ -10,6 +10,7 @@ using SegFyYoutube.Infra.Context;
 using SegFyYoutube.Infra.Repository;
 using SegFyYoutube.WebApi.Configurations;
 using System.IO;
+using Microsoft.OpenApi.Models;
 
 namespace SegFyYoutube.WebApi
 {
@@ -44,6 +45,11 @@ namespace SegFyYoutube.WebApi
                 .AllowCredentials();
             }));
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+
             //Database Settings
             services.AddDatabaseSetup(Configuration);
 
@@ -63,6 +69,12 @@ namespace SegFyYoutube.WebApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors("MyPolicy");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Values Api V1");
+            });
 
             if (env.IsDevelopment())
             {
