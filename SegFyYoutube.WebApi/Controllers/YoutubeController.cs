@@ -21,7 +21,6 @@ namespace SegFyYoutube.WebApi.Controllers
             _youtubeAppService = youtubeAppService;
         }
 
-        // GET api/values
         [HttpGet]
         [Produces(typeof(List<YoutubeDto>))]
         public async Task<ActionResult> Get([FromQuery] string searchFilter, [FromQuery] EYoutubeType searchType)

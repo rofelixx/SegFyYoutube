@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SegFyYoutube.Domain\SegFyYoutube.Domain.csproj" />
-    <ProjectReference Include="..\SegFyYoutube.Infra\SegFyYoutube.Infra.csproj" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SegFyYoutube.Service\SegFyYoutube.Application.csproj" />
+    <ProjectReference Include="..\SegFyYoutube.Application\SegFyYoutube.Application.csproj" />
+    <ProjectReference Include="..\SegFyYoutube.Infra\SegFyYoutube.Infra.csproj" />
   </ItemGroup>
 
 </Project>
